@@ -16,12 +16,11 @@ def extract_plain_text_body(payload: dict) -> str:
     """
     Extracts and decodes the text/plain body from the payload.
     """
-    try:
-        parts = payload['parts']
+    if parts := payload.get('parts'):
         for part in parts:
             if part['mimeType'] == 'text/plain':
                 data = part['body']['data']
                 return base64.urlsafe_b64decode(data).decode('utf-8')
-    except KeyError:
+    else:
         data = payload['body']['data']
         return base64.urlsafe_b64decode(data).decode('utf-8')

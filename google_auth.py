@@ -22,8 +22,7 @@ def get_auth_service():
             creds = flow.run_local_server(port=7001)
             save_credentials(creds)
 
-    service = build('gmail', 'v1', credentials=creds)
-    return service
+    return build('gmail', 'v1', credentials=creds)
 
 
 def save_credentials(creds):
@@ -36,8 +35,7 @@ def load_credentials():
     """Load OAuth credentials from a file if it exists."""
     if os.path.exists('token.json'):
         with open('token.json', 'r') as token_file:
-            creds = Credentials.from_authorized_user_info(json.load(token_file), SCOPES)
-            return creds
+            return Credentials.from_authorized_user_info(json.load(token_file), SCOPES)
     return None
 
 
