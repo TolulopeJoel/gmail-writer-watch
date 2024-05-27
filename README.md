@@ -1,5 +1,3 @@
-Here's a README file for your project:
-
 # Gmail Writer Watcher
 
 ## Project Description
