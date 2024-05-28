@@ -11,14 +11,15 @@ def fetch_recent_articles(blog: dict) -> list:
     blog_link = blog.get('blog')
     feed_link = f'{blog_link}feed/?type=rss'
 
-    latest_date, formatted_date = get_latest_feed_entry_date(feed_link)
-    last_modified_date = dateutil.parser.parse(blog['lastModified'] or '1999')
+    if feed_dates := get_latest_feed_entry_date(feed_link):
+        latest_date, formatted_date = feed_dates
+        last_modified_date = dateutil.parser.parse(blog['lastModified'] or '1999')
 
-    if latest_date > last_modified_date:
-        articles = gather_feed_articles(feed_link, last_modified_date)
-        if articles:
-            blog['lastModified'] = formatted_date
-        return articles
+        if latest_date > last_modified_date:
+            articles = gather_feed_articles(feed_link, last_modified_date)
+            if articles:
+                blog['lastModified'] = formatted_date
+            return articles
     return []
 
 
@@ -47,10 +48,11 @@ def get_latest_feed_entry_date(feed_url: str) -> tuple:
     Get the latest entry date from the RSS feed.
     """
     rss_feed = feedparser.parse(feed_url)
-    latest_entry = rss_feed.entries[0]
-    entry_date = latest_entry.get('published_parsed')
+    if rss_feed.entries:
+        latest_entry = rss_feed.entries[0]
+        entry_date = latest_entry.get('published_parsed')
 
-    return parse_feed_date(entry_date)
+        return parse_feed_date(entry_date)
 
 
 def parse_feed_date(date_list: list) -> tuple:
