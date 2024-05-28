@@ -1,6 +1,7 @@
 import base64
 import json
 import os
+from datetime import datetime
 from email.message import EmailMessage
 
 from dotenv import load_dotenv
@@ -63,6 +64,10 @@ def update_blog_data(json_file: str):
         new_articles = fetch_recent_articles(blog)
         all_new_articles.extend(new_articles)
 
+    all_new_articles.sort(
+        reverse=True,
+        key=lambda x:  datetime.strptime(x['published'], "%a, %d %b %Y %H:%M"),
+    )
     if all_new_articles:
         send_articles(all_new_articles)
         write_blog_data_to_file(json_file, blogs)
