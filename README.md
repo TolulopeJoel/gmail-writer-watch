@@ -59,20 +59,42 @@ example:
    []
    ```
 
+
 ## Usage
 
-1. **Run the application**:
-   ```bash
-   python main.py
-   ```
+### 1. **Run the application**:
 
-2. **Access the application**:
-   Open your web browser and go to `http://localhost:5000/new`. The application will check for new articles and send an email if any are found.
+- **Access via web**:
+  
+  To run the application and access it through a web browser, use the following command:
+  
+  ```bash
+  python main.py
+  ```
 
+- **Access on terminal**:
 
-## License
+  To run the application and interact with it directly in the terminal, use the following command:
+  
+  ```bash
+  python blog.py
+  ```
 
-This project is licensed under the MIT License.
+### 2. **Access the application**:
+
+- **Via web browser**:
+  
+  After running `python main.py`, open your web browser and go to the following URL:
+  
+  ```
+  http://localhost:5000/new
+  ```
+
+- **Via terminal**:
+  
+  After running `python blog.py`, you can see the list of articles directly in the terminal.
+
+In both cases, the application will list new articles and send an email notification.
 
 
 ## Nice to Haves
@@ -82,6 +104,11 @@ This project is licensed under the MIT License.
 the application can't tell which posts from that blog you've read, so it sends all posts from the<br />
 newly added blog. Seperate these so you can easily distinguish newly added blog links from<br />
 updates on blogs you already read.
+
+
+## License
+
+This project is licensed under the MIT License.
 
 
 ## Author
