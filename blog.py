@@ -105,3 +105,9 @@ def send_articles(articles: list) -> bool:
     # Send the email
     service.users().messages().send(userId="me", body={
         "raw": encoded_message}).execute()
+
+
+if __name__ == "__main__":
+    json_file_path = 'blogs.json'
+    add_new_blogs(json_file_path)
+    print(update_blog_data(json_file_path))
