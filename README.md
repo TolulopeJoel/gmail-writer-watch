@@ -100,9 +100,11 @@ In both cases, the application will list new articles and send an email notifica
 ## Nice to Haves
 
 - [x] Sort posts by published date
-- [ ] Seperate 'new' writers posts from main email body. When you add a new blog link to your draft,<br />
+- [ ] Direct RSS Feed Links: Allow users to directly add RSS feed links in the email draft for accurate <br />
+data fetching, especially for blogs that do not follow the standard `/feed` path.
+- [ ] Separate 'new' writers posts from the main email body. When you add a new blog link to your draft,<br />
 the application can't tell which posts from that blog you've read, so it sends all posts from the<br />
-newly added blog. Seperate these so you can easily distinguish newly added blog links from<br />
+newly added blog. Separate these so you can easily distinguish newly added blog links from<br />
 updates on blogs you already read.
 
 
