@@ -1,9 +1,11 @@
+import asyncio
 import base64
 import json
 import os
 from datetime import datetime
 from email.message import EmailMessage
 
+import aiohttp
 from dotenv import load_dotenv
 
 from draft import fetch_email_draft
@@ -52,22 +54,23 @@ def add_new_blogs(json_file: str):
         json.dump(data, file, indent=4)
 
 
-def update_blog_data(json_file: str):
-    """
-    Update the blog data with recent articles,
-    send an email if there are new articles.
-    """
+async def update_blog_data(json_file):
+    """Update the blog data with recent articles, send an email if there are new articles."""
     all_new_articles = []
     blogs = get_current_blogs(json_file)
 
-    for blog in blogs:
-        new_articles = fetch_recent_articles(blog)
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_recent_articles(session, blog) for blog in blogs]
+        results = await asyncio.gather(*tasks)
+
+    for new_articles in results:
         all_new_articles.extend(new_articles)
 
     all_new_articles.sort(
         reverse=True,
-        key=lambda x:  datetime.strptime(x['published'], "%a, %d %b %Y %H:%M"),
+        key=lambda x: datetime.strptime(x['published'], "%a, %d %b %Y %H:%M")
     )
+
     if all_new_articles:
         send_articles(all_new_articles)
         write_blog_data_to_file(json_file, blogs)
@@ -103,11 +106,14 @@ def send_articles(articles: list) -> bool:
     encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
 
     # Send the email
-    service.users().messages().send(userId="me", body={
-        "raw": encoded_message}).execute()
+    service.users().messages().send(
+        userId="me",
+        body={"raw": encoded_message}
+    ).execute()
 
 
 if __name__ == "__main__":
     json_file_path = 'blogs.json'
     add_new_blogs(json_file_path)
-    print(update_blog_data(json_file_path))
+    articles = asyncio.run(update_blog_data(json_file_path))
+    print(articles)

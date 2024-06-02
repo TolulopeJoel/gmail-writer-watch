@@ -2,19 +2,19 @@
     {
         "author": "kartikay",
         "blog": "https://kartikay.bearblog.dev/",
-        "lastModified": "Mon, 27 May 2024 14:36",
+        "lastModified": "Thu, 30 May 2024 18:04",
         "type": "RSS"
     },
     {
         "author": "tylerbruno",
         "blog": "https://tylerbruno.bearblog.dev/",
-        "lastModified": "Wed, 29 May 2024 14:52",
+        "lastModified": "Fri, 31 May 2024 15:19",
         "type": "RSS"
     },
     {
         "author": "refactoring",
         "blog": "https://refactoring.fm/",
-        "lastModified": "Wed, 29 May 2024 05:35",
+        "lastModified": "Fri, 31 May 2024 05:35",
         "type": "RSS"
     },
     {
@@ -32,13 +32,13 @@
     {
         "author": "newsletter",
         "blog": "https://newsletter.theaiedge.io/",
-        "lastModified": "Mon, 27 May 2024 15:26",
+        "lastModified": "Fri, 31 May 2024 15:19",
         "type": "RSS"
     },
     {
         "author": "davidbclear",
         "blog": "https://davidbclear.medium.com/",
-        "lastModified": "Fri, 17 May 2024 15:02",
+        "lastModified": "Fri, 31 May 2024 15:02",
         "type": "RSS"
     },
     {
@@ -50,7 +50,7 @@
     {
         "author": "akanksha",
         "blog": "https://akanksha.bearblog.dev/",
-        "lastModified": "Wed, 29 May 2024 13:07",
+        "lastModified": "Fri, 31 May 2024 17:41",
         "type": "RSS"
     },
     {
@@ -74,13 +74,13 @@
     {
         "author": "prakhesar",
         "blog": "https://prakhesar.bearblog.dev/",
-        "lastModified": "Wed, 29 May 2024 16:02",
+        "lastModified": "Fri, 31 May 2024 04:04",
         "type": "RSS"
     },
     {
         "author": "codingchallenges",
         "blog": "https://codingchallenges.substack.com/",
-        "lastModified": "Sat, 18 May 2024 08:01",
+        "lastModified": "Sat, 01 Jun 2024 08:01",
         "type": "RSS"
     },
     {
@@ -98,7 +98,7 @@
     {
         "author": "systemdesignclassroom",
         "blog": "https://systemdesignclassroom.substack.com/",
-        "lastModified": "Fri, 24 May 2024 20:23",
+        "lastModified": "Sat, 01 Jun 2024 02:37",
         "type": "RSS"
     },
     {
@@ -111,6 +111,12 @@
         "author": "hybridhacker",
         "blog": "https://hybridhacker.email/",
         "lastModified": "Fri, 24 May 2024 07:52",
+        "type": "RSS"
+    },
+    {
+        "author": "ava",
+        "blog": "https://ava.substack.com/",
+        "lastModified": "Wed, 29 May 2024 22:46",
         "type": "RSS"
     }
 ]
