@@ -108,11 +108,11 @@ newly added blog. Separate these so you can easily distinguish newly added blog 
 updates on blogs you already read.
 
 
-## License
-
-This project is licensed under the MIT License.
-
-
 ## Author
 
 - [Tolu Joel](https://tolulopejoel.github.io/)
+
+
+## License
+
+This project is licensed under the MIT License.
